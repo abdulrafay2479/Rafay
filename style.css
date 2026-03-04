@@ -422,6 +422,131 @@ ul { list-style: none; }
 }
 
 /* ============================================================
+   HERO PROFILE IMAGE — parallax, blend, animations
+   ============================================================ */
+
+/* Parallax container positioned to the right in hero */
+.hero-profile-parallax {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 420px;
+  height: 520px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Outer animated glow ring behind the image */
+.hero-profile-glow-ring {
+  position: absolute;
+  inset: -30px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse 60% 80% at 50% 50%,
+    rgba(168, 85, 247, 0.25) 0%,
+    rgba(34, 211, 238, 0.1) 40%,
+    transparent 70%);
+  animation: heroGlowPulse 4s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes heroGlowPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.06); }
+}
+
+/* Wrapper that holds the image and the overlay mask */
+.hero-profile-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  animation: heroImgReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both,
+             heroFloat 6s ease-in-out 1.5s infinite;
+  transform-style: preserve-3d;
+}
+
+/* Page-load reveal: fade in + scale down from larger */
+@keyframes heroImgReveal {
+  from { opacity: 0; transform: scale(1.15); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Idle floating bob */
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-18px); }
+}
+
+/* The actual profile photo */
+.hero-profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 50% 50% 45% 45% / 55% 55% 45% 45%;
+  /* CSS background removal simulation */
+  mix-blend-mode: luminosity;
+  filter:
+    drop-shadow(0 0 40px rgba(168, 85, 247, 0.6))
+    drop-shadow(0 0 80px rgba(34, 211, 238, 0.25))
+    brightness(1.15)
+    contrast(1.1)
+    saturate(0.9);
+  /* Fade edges into dark background via mask */
+  -webkit-mask-image:
+    radial-gradient(ellipse 85% 90% at 50% 45%,
+      black 40%,
+      rgba(0,0,0,0.9) 55%,
+      rgba(0,0,0,0.5) 70%,
+      transparent 85%);
+  mask-image:
+    radial-gradient(ellipse 85% 90% at 50% 45%,
+      black 40%,
+      rgba(0,0,0,0.9) 55%,
+      rgba(0,0,0,0.5) 70%,
+      transparent 85%);
+  display: block;
+  transition: filter var(--transition), transform 0.1s ease;
+}
+
+/* Gradient overlay to further blend the bottom edge */
+.hero-profile-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 50% 50% 45% 45% / 55% 55% 45% 45%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 50%,
+    rgba(10, 10, 15, 0.4) 75%,
+    rgba(10, 10, 15, 0.85) 100%
+  );
+  pointer-events: none;
+}
+
+/* Small glow particles orbiting the hero image */
+.hero-profile-particles {
+  position: absolute;
+  inset: -20px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-glow-particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: orbitGlow linear infinite;
+  opacity: 0;
+}
+
+@keyframes orbitGlow {
+  0%   { opacity: 0;   transform: translate(0, 0) scale(0.5); }
+  15%  { opacity: 0.8; }
+  85%  { opacity: 0.4; }
+  100% { opacity: 0;   transform: translate(var(--tx), var(--ty)) scale(1.2); }
+}
+
+/* ============================================================
    ABOUT SECTION
    ============================================================ */
 .about { background: var(--bg-secondary); }
@@ -445,39 +570,47 @@ ul { list-style: none; }
   height: 280px;
 }
 
-/* Replace this div with an <img> when a real photo is available */
-.profile-placeholder {
+/* Real profile photo in about section */
+.about-profile-img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: top center;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--bg-card), var(--bg-card-hover));
-  border: 2px solid var(--border-color);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  text-align: center;
-  transition: border-color var(--transition);
+  display: block;
+  transition: transform var(--transition), filter var(--transition), box-shadow var(--transition);
+  filter: brightness(1.05) contrast(1.05);
+  box-shadow: 0 0 0 2px var(--border-color), var(--shadow-glow);
 }
 
-.profile-placeholder:hover { border-color: var(--border-hover); }
-
-.profile-initials {
-  font-family: var(--font-heading);
-  font-size: 3.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.profile-frame:hover .about-profile-img {
+  transform: scale(1.04);
+  filter: brightness(1.1) contrast(1.05);
+  box-shadow: 0 0 0 3px var(--accent),
+              0 0 30px rgba(168, 85, 247, 0.5),
+              0 0 60px rgba(34, 211, 238, 0.2);
 }
 
-.placeholder-note {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  letter-spacing: 1px;
-  text-transform: uppercase;
+/* Animated glow ring around about profile */
+.profile-glow-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: calc(var(--radius-lg) + 4px);
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end), var(--gradient-start));
+  background-size: 200% 200%;
+  animation: glowRotate 3s linear infinite;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+.profile-frame:hover .profile-glow-ring {
+  opacity: 1;
+}
+
+@keyframes glowRotate {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Decorative rings */
@@ -956,6 +1089,14 @@ a.contact-link:hover {
   .contact-info { text-align: center; }
 
   a.contact-link:hover { transform: none; }
+
+  /* Hero profile on tablet — smaller, lower z-index */
+  .hero-profile-parallax {
+    width: 300px;
+    height: 380px;
+    right: -40px;
+    opacity: 0.5;
+  }
 }
 
 /* ============================================================
@@ -993,6 +1134,9 @@ a.contact-link:hover {
 
   /* Hero */
   .hero-cta { flex-direction: column; align-items: center; }
+
+  /* Hide hero profile on small screens to keep content readable */
+  .hero-profile-parallax { display: none; }
 
   /* About */
   .profile-frame { width: 220px; height: 220px; }

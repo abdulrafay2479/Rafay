@@ -284,3 +284,96 @@ function triggerSkillBar(barItem) {
     });
   });
 })();
+
+/* ============================================================
+   10. HERO PROFILE IMAGE — parallax, 3D tilt, scroll effects
+   ============================================================ */
+(function initHeroProfileEffects() {
+  const parallaxEl = document.getElementById('hero-profile-parallax');
+  const wrapperEl  = document.getElementById('hero-profile-wrapper');
+  const imgEl      = document.getElementById('hero-profile-img');
+  const heroEl     = document.querySelector('.hero');
+  if (!parallaxEl || !wrapperEl || !imgEl || !heroEl) return;
+
+  /* --- Scroll parallax + scale + opacity --- */
+  function onScroll() {
+    const scrollY    = window.scrollY;
+    const heroHeight = heroEl.offsetHeight;
+
+    // Parallax: image moves up slower than the page (offset * 0.35)
+    const parallaxOffset = scrollY * 0.35;
+    parallaxEl.style.transform = `translateY(calc(-50% + ${parallaxOffset}px))`;
+
+    // Scale: zoom out slightly as user scrolls into the hero
+    const progress  = Math.min(scrollY / heroHeight, 1);
+    const scale     = 1 - progress * 0.12;
+
+    // Opacity: fade out as user scrolls away from hero
+    const opacity   = 1 - progress * 1.5;
+
+    imgEl.style.transform = `scale(${Math.max(scale, 0.88)})`;
+    parallaxEl.style.opacity = Math.max(opacity, 0).toFixed(3);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* --- 3D tilt on mouse move --- */
+  const MAX_TILT   = 12;     // degrees
+  const PERSPECTIVE = '800px';
+
+  document.addEventListener('mousemove', e => {
+    const cx = window.innerWidth  / 2;
+    const cy = window.innerHeight / 2;
+    const dx = (e.clientX - cx) / cx; // -1 to 1
+    const dy = (e.clientY - cy) / cy; // -1 to 1
+
+    const rotateY =  dx * MAX_TILT;
+    const rotateX = -dy * MAX_TILT;
+
+    wrapperEl.style.transform = `perspective(${PERSPECTIVE}) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
+
+  // Reset tilt when mouse leaves the window
+  document.addEventListener('mouseleave', () => {
+    wrapperEl.style.transform = `perspective(${PERSPECTIVE}) rotateX(0deg) rotateY(0deg)`;
+  });
+})();
+
+/* ============================================================
+   11. HERO PROFILE GLOW PARTICLES — floating glow dots around image
+   ============================================================ */
+(function initHeroProfileParticles() {
+  const container = document.getElementById('hero-profile-particles');
+  if (!container) return;
+
+  const COLORS = ['#a855f7', '#22d3ee', '#7c3aed', '#06b6d4', '#c084fc'];
+  const COUNT  = 14;
+
+  for (let i = 0; i < COUNT; i++) {
+    const dot = document.createElement('div');
+    dot.classList.add('hero-glow-particle');
+
+    const size     = Math.random() * 6 + 2;
+    const startX   = 20 + Math.random() * 60; // % within container
+    const startY   = 20 + Math.random() * 60;
+    const tx       = (Math.random() - 0.5) * 200;
+    const ty       = (Math.random() - 0.5) * 200;
+    const duration = Math.random() * 8 + 5;
+    const delay    = Math.random() * 10;
+    const color    = COLORS[Math.floor(Math.random() * COLORS.length)];
+
+    dot.style.left            = `${startX}%`;
+    dot.style.top             = `${startY}%`;
+    dot.style.width           = `${size}px`;
+    dot.style.height          = `${size}px`;
+    dot.style.background      = color;
+    dot.style.boxShadow       = `0 0 ${size * 3}px ${color}`;
+    dot.style.animationDuration = `${duration}s`;
+    dot.style.animationDelay  = `${delay}s`;
+    dot.style.setProperty('--tx', `${tx}px`);
+    dot.style.setProperty('--ty', `${ty}px`);
+
+    container.appendChild(dot);
+  }
+})();
