@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdul Rafay Qaimkhani – Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Space Grotesk + Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a class="nav-logo" href="#hero">AR<span class="accent">.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-greeting">Hello, I'm</p>
+      <h1 class="hero-name">Abdul Rafay<br /><span class="accent">Qaimkhani</span></h1>
+      <p class="hero-title">
+        <span class="typing-prefix">I'm a </span><span class="typing-text" id="typingText"></span><span class="cursor">|</span>
+      </p>
+      <p class="hero-sub">Computer Science student passionate about building things for the web.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT SECTION ========== -->
+  <section class="section about" id="about">
+    <div class="container">
+      <h2 class="section-title reveal">About <span class="accent">Me</span></h2>
+      <div class="about-grid">
+        <!-- Profile image column -->
+        <div class="about-img-wrap reveal">
+          <!--
+            PROFILE PICTURE PLACEHOLDER
+            ─────────────────────────────
+            To use your own photo:
+              1. Add your image file (e.g., profile.jpg) to the same folder as index.html.
+              2. Replace the <div class="profile-placeholder"> below with:
+                 <img src="profile.jpg" alt="Abdul Rafay Qaimkhani" class="profile-img" />
+              3. You can also use an online URL:
+                 <img src="https://your-url.com/photo.jpg" alt="Abdul Rafay Qaimkhani" class="profile-img" />
+          -->
+          <div class="profile-placeholder">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Profile picture placeholder">
+              <circle cx="100" cy="80" r="45" fill="var(--accent)" opacity="0.25"/>
+              <ellipse cx="100" cy="175" rx="65" ry="40" fill="var(--accent)" opacity="0.15"/>
+              <circle cx="100" cy="80" r="35" fill="var(--accent)" opacity="0.4"/>
+              <text x="100" y="90" text-anchor="middle" font-size="38" fill="var(--accent)" font-family="Space Grotesk,sans-serif" font-weight="700">AR</text>
+            </svg>
+            <span class="placeholder-label">Replace with your photo</span>
+          </div>
+          <div class="glow-ring"></div>
+        </div>
+
+        <!-- Bio column -->
+        <div class="about-bio reveal">
+          <h3 class="about-heading">Who am I?</h3>
+          <p class="about-text">
+            I'm <strong>Abdul Rafay Qaimkhani</strong>, a Computer Science undergraduate at
+            <strong>HITMS, Hyderabad</strong>. I enjoy crafting elegant solutions to real-world
+            problems and am passionate about web development, software engineering, and emerging
+            technologies.
+          </p>
+          <p class="about-text">
+            When I'm not coding, you'll find me exploring new frameworks, contributing to open-source,
+            or diving deep into algorithms and data structures.
+          </p>
+
+          <!-- Info cards -->
+          <div class="info-cards">
+            <div class="info-card reveal">
+              <span class="info-icon">🎓</span>
+              <div>
+                <strong>Education</strong>
+                <p>Bachelor's in Computer Science<br />HITMS, Hyderabad</p>
+              </div>
+            </div>
+            <div class="info-card reveal">
+              <span class="info-icon">📍</span>
+              <div>
+                <strong>Location</strong>
+                <p>Hyderabad, Pakistan</p>
+              </div>
+            </div>
+            <div class="info-card reveal">
+              <span class="info-icon">💻</span>
+              <div>
+                <strong>Interests</strong>
+                <p>Web Dev · Open Source · DSA</p>
+              </div>
+            </div>
+            <div class="info-card reveal">
+              <span class="info-icon">🚀</span>
+              <div>
+                <strong>Status</strong>
+                <p>Open to internships &amp; collaborations</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS SECTION ========== -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <h2 class="section-title reveal">My <span class="accent">Skills</span></h2>
+      <p class="section-sub reveal">Technologies and tools I work with</p>
+
+      <!-- Skill tags -->
+      <div class="skill-tags reveal">
+        <span class="skill-tag">HTML5</span>
+        <span class="skill-tag">CSS3</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">Git &amp; GitHub</span>
+        <span class="skill-tag">VS Code</span>
+        <span class="skill-tag">Linux</span>
+        <span class="skill-tag">Data Structures</span>
+        <span class="skill-tag">Algorithms</span>
+        <span class="skill-tag">OOP</span>
+        <span class="skill-tag">SQL</span>
+      </div>
+
+      <!-- Animated skill bars -->
+      <div class="skill-bars">
+        <div class="skill-bar-item reveal">
+          <div class="skill-bar-header">
+            <span>HTML &amp; CSS</span><span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
+        </div>
+        <div class="skill-bar-item reveal">
+          <div class="skill-bar-header">
+            <span>JavaScript</span><span class="skill-pct">75%</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
+        </div>
+        <div class="skill-bar-item reveal">
+          <div class="skill-bar-header">
+            <span>Python</span><span class="skill-pct">70%</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div>
+        </div>
+        <div class="skill-bar-item reveal">
+          <div class="skill-bar-header">
+            <span>C++</span><span class="skill-pct">65%</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="65"></div></div>
+        </div>
+        <div class="skill-bar-item reveal">
+          <div class="skill-bar-header">
+            <span>Git &amp; GitHub</span><span class="skill-pct">80%</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS SECTION ========== -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <h2 class="section-title reveal">Featured <span class="accent">Projects</span></h2>
+      <p class="section-sub reveal">A few things I've built — more coming soon!</p>
+      <div class="projects-grid">
+
+        <div class="project-card reveal">
+          <div class="project-card-top">
+            <span class="project-icon">🌐</span>
+            <div class="project-links">
+              <a href="https://github.com/abdulrafay2479" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Portfolio Website</h3>
+          <p class="project-desc">A personal portfolio site built with pure HTML, CSS, and JavaScript featuring dark-theme design and smooth animations.</p>
+          <div class="project-tech">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-card-top">
+            <span class="project-icon">🧮</span>
+            <div class="project-links">
+              <a href="https://github.com/abdulrafay2479" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">DSA Playground</h3>
+          <p class="project-desc">An interactive visualizer for common Data Structures &amp; Algorithms — sorting, searching, and graph traversals.</p>
+          <div class="project-tech">
+            <span>Python</span><span>C++</span><span>Algorithms</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-card-top">
+            <span class="project-icon">📋</span>
+            <div class="project-links">
+              <a href="https://github.com/abdulrafay2479" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Task Manager App</h3>
+          <p class="project-desc">A clean, minimalist to-do / task manager application with local-storage persistence and drag-and-drop reordering.</p>
+          <div class="project-tech">
+            <span>JavaScript</span><span>HTML</span><span>CSS</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="projects-cta reveal">
+        <a href="https://github.com/abdulrafay2479" target="_blank" rel="noopener" class="btn btn-outline">
+          See All on GitHub →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT SECTION ========== -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <h2 class="section-title reveal">Get In <span class="accent">Touch</span></h2>
+      <p class="section-sub reveal">Have a question or want to work together? Drop me a message!</p>
+
+      <div class="contact-grid">
+        <!-- Contact info -->
+        <div class="contact-info reveal">
+          <div class="contact-item">
+            <span class="contact-icon">📧</span>
+            <div>
+              <strong>Email</strong>
+              <p>abdulrafay2479@github.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <div>
+              <strong>Location</strong>
+              <p>Hyderabad, Pakistan</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🎓</span>
+            <div>
+              <strong>Institution</strong>
+              <p>HITMS, Hyderabad</p>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/abdulrafay2479" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact form -->
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="nameInput">Name</label>
+            <input type="text" id="nameInput" name="name" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <label for="emailInput">Email</label>
+            <input type="email" id="emailInput" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="messageInput">Message</label>
+            <textarea id="messageInput" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Send Message 🚀</button>
+          <p class="form-note" id="formNote"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">
+        &copy; <span id="year"></span> <strong>Abdul Rafay Qaimkhani</strong>. Built with ❤️ using HTML, CSS &amp; JavaScript.
+      </p>
+      <a href="#hero" class="footer-back-top" aria-label="Back to top">↑ Back to top</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
