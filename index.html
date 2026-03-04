@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdul Rafay Qaimkhani | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">AR<span class="accent">.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-glow"></div>
+    <div class="hero-content">
+      <p class="hero-greeting fade-up">Hello, I'm</p>
+      <h1 class="hero-name fade-up">Abdul Rafay<br /><span class="accent gradient-text">Qaimkhani</span></h1>
+      <p class="hero-subtitle fade-up">
+        <span class="typing-prefix">I am a </span>
+        <span class="typing-text" id="typing-text"></span><span class="typing-cursor">|</span>
+      </p>
+      <p class="hero-location fade-up">📍 Hyderabad, Pakistan</p>
+      <div class="hero-cta fade-up">
+        <a href="#about" class="btn btn-primary">Explore My Work</a>
+        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      </div>
+      <div class="hero-scroll-indicator fade-up">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <span>Scroll Down</span>
+      </div>
+    </div>
+    <div class="hero-particles" id="hero-particles"></div>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2 class="section-title">About <span class="accent">Me</span></h2>
+        <p class="section-subtitle">Get to know me better</p>
+      </div>
+      <div class="about-grid">
+        <!-- Profile Picture -->
+        <div class="about-image fade-left">
+          <div class="profile-frame">
+            <!--
+              ============================================================
+              PROFILE PICTURE PLACEHOLDER
+              To replace this with your actual photo:
+              1. Add your photo to the project folder (e.g., profile.jpg)
+              2. Replace the <div class="profile-placeholder"> below with:
+                 <img src="profile.jpg" alt="Abdul Rafay Qaimkhani" />
+              ============================================================
+            -->
+            <div class="profile-placeholder">
+              <div class="profile-initials">AR</div>
+              <p class="placeholder-note">Replace with<br />profile.jpg</p>
+            </div>
+            <div class="profile-ring ring-1"></div>
+            <div class="profile-ring ring-2"></div>
+          </div>
+        </div>
+
+        <!-- Bio -->
+        <div class="about-content fade-right">
+          <h3 class="about-heading">Computer Science Student &amp; Aspiring Developer</h3>
+          <p class="about-bio">
+            Hi! I'm <strong>Abdul Rafay Qaimkhani</strong>, a passionate Computer Science student at
+            <strong>HITMS</strong> in Hyderabad. I love building things for the web and exploring
+            the ever-evolving world of technology. My journey in CS has fuelled my curiosity for
+            problem-solving, software development, and creating user-friendly digital experiences.
+          </p>
+          <p class="about-bio">
+            When I'm not coding, I enjoy learning new technologies, collaborating on open-source
+            projects, and continuously sharpening my skills to become a well-rounded developer.
+          </p>
+
+          <!-- Info Cards -->
+          <div class="info-cards">
+            <div class="info-card fade-up">
+              <span class="info-icon">🎓</span>
+              <div>
+                <strong>Education</strong>
+                <p>Bachelor's in Computer Science<br />HITMS, Hyderabad</p>
+              </div>
+            </div>
+            <div class="info-card fade-up">
+              <span class="info-icon">📍</span>
+              <div>
+                <strong>Location</strong>
+                <p>Hyderabad, Pakistan</p>
+              </div>
+            </div>
+            <div class="info-card fade-up">
+              <span class="info-icon">💻</span>
+              <div>
+                <strong>Interests</strong>
+                <p>Web Dev, Open Source,<br />Problem Solving</p>
+              </div>
+            </div>
+            <div class="info-card fade-up">
+              <span class="info-icon">🐙</span>
+              <div>
+                <strong>GitHub</strong>
+                <p><a href="https://github.com/abdulrafay2479" target="_blank" rel="noopener noreferrer">abdulrafay2479</a></p>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://github.com/abdulrafay2479" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View GitHub Profile</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS SECTION ===== -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2 class="section-title">My <span class="accent">Skills</span></h2>
+        <p class="section-subtitle">Technologies I work with</p>
+      </div>
+
+      <!-- Skill Tags -->
+      <div class="skill-tags fade-up">
+        <span class="skill-tag">HTML5</span>
+        <span class="skill-tag">CSS3</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">Git &amp; GitHub</span>
+        <span class="skill-tag">Responsive Design</span>
+        <span class="skill-tag">Problem Solving</span>
+        <span class="skill-tag">Data Structures</span>
+        <span class="skill-tag">Algorithms</span>
+      </div>
+
+      <!-- Skill Bars -->
+      <div class="skill-bars">
+        <div class="skill-bar-item fade-up">
+          <div class="skill-bar-header">
+            <span class="skill-name">HTML &amp; CSS</span>
+            <span class="skill-percent">85%</span>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="85"></div>
+          </div>
+        </div>
+        <div class="skill-bar-item fade-up">
+          <div class="skill-bar-header">
+            <span class="skill-name">JavaScript</span>
+            <span class="skill-percent">70%</span>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="70"></div>
+          </div>
+        </div>
+        <div class="skill-bar-item fade-up">
+          <div class="skill-bar-header">
+            <span class="skill-name">Python</span>
+            <span class="skill-percent">75%</span>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="75"></div>
+          </div>
+        </div>
+        <div class="skill-bar-item fade-up">
+          <div class="skill-bar-header">
+            <span class="skill-name">C++</span>
+            <span class="skill-percent">65%</span>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="65"></div>
+          </div>
+        </div>
+        <div class="skill-bar-item fade-up">
+          <div class="skill-bar-header">
+            <span class="skill-name">Git &amp; Version Control</span>
+            <span class="skill-percent">80%</span>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" data-width="80"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2 class="section-title">My <span class="accent">Projects</span></h2>
+        <p class="section-subtitle">Things I've built &amp; am building</p>
+      </div>
+      <div class="projects-grid">
+
+        <article class="project-card fade-up">
+          <div class="project-card-top">
+            <div class="project-icon">🌐</div>
+            <div class="project-links">
+              <a href="https://github.com/abdulrafay2479" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View on GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Portfolio Website</h3>
+          <p class="project-desc">A modern, dark-themed personal portfolio website built with pure HTML, CSS, and vanilla JavaScript featuring smooth animations and responsive design.</p>
+          <div class="project-tech">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+        </article>
+
+        <article class="project-card fade-up">
+          <div class="project-card-top">
+            <div class="project-icon">🐍</div>
+            <div class="project-links">
+              <a href="https://github.com/abdulrafay2479" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View on GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Python Projects</h3>
+          <p class="project-desc">A collection of Python scripts and programs exploring algorithms, data manipulation, and automation — developed while honing problem-solving skills.</p>
+          <div class="project-tech">
+            <span>Python</span><span>Algorithms</span>
+          </div>
+        </article>
+
+        <article class="project-card fade-up">
+          <div class="project-card-top">
+            <div class="project-icon">💡</div>
+            <div class="project-links">
+              <a href="https://github.com/abdulrafay2479" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View on GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Coming Soon</h3>
+          <p class="project-desc">More exciting projects are in progress! Stay tuned for upcoming web applications, tools, and experiments as I continue learning and building.</p>
+          <div class="project-tech">
+            <span>Stay Tuned</span>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="projects-cta fade-up">
+        <a href="https://github.com/abdulrafay2479" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          View All Projects on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
+        <p class="section-subtitle">Let's connect and build something great</p>
+      </div>
+      <div class="contact-grid">
+
+        <!-- Contact Info -->
+        <div class="contact-info fade-left">
+          <h3>Let's Talk!</h3>
+          <p>I'm currently open to new opportunities, collaborations, and interesting conversations. Whether you have a project idea, a question, or just want to say hi — feel free to reach out!</p>
+
+          <div class="contact-links">
+            <a href="https://github.com/abdulrafay2479" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <span class="contact-link-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </span>
+              <div>
+                <strong>GitHub</strong>
+                <span>github.com/abdulrafay2479</span>
+              </div>
+            </a>
+            <a href="mailto:abdulrafay2479@example.com" class="contact-link">
+              <span class="contact-link-icon">✉️</span>
+              <div>
+                <strong>Email</strong>
+                <span>Feel free to reach out</span>
+              </div>
+            </a>
+            <div class="contact-link">
+              <span class="contact-link-icon">📍</span>
+              <div>
+                <strong>Location</strong>
+                <span>Hyderabad, Pakistan</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form fade-right" id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="John Doe" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Hello, I'd like to talk about..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Send Message 🚀</button>
+          <p class="form-note" id="form-message"></p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">
+        Designed &amp; Built by <span class="accent">Abdul Rafay Qaimkhani</span>
+      </p>
+      <p class="footer-copy">&copy; <span id="year"></span> All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
