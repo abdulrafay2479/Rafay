@@ -190,37 +190,127 @@ function triggerSkillBar(barItem) {
 }
 
 /* ============================================================
-   6. FLOATING PARTICLES — hero background
+   6. THREE.JS SMOKE EFFECT — WebGL fixed background
    ============================================================ */
-(function initParticles() {
-  const container = document.getElementById('hero-particles');
-  if (!container) return;
+(function initSmokeEffect() {
+  if (typeof THREE === 'undefined') return;
 
-  const PARTICLE_COUNT = 24;
-  const colors = ['#a855f7', '#22d3ee', '#7c3aed', '#06b6d4'];
+  const canvas = document.getElementById('smoke-canvas');
+  if (!canvas) return;
 
-  for (let i = 0; i < PARTICLE_COUNT; i++) {
-    const dot = document.createElement('div');
-    dot.classList.add('particle');
+  /* ---- Scene / Camera / Renderer ---- */
+  const scene = new THREE.Scene();
 
-    const size     = Math.random() * 4 + 1;
-    const left     = Math.random() * 100;
-    const duration = Math.random() * 18 + 10;
-    const delay    = Math.random() * 20;
-    const color    = colors[Math.floor(Math.random() * colors.length)];
+  const camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    1,
+    1000
+  );
+  camera.position.z = 1000;
 
-    dot.style.cssText = `
-      left: ${left}%;
-      width: ${size}px;
-      height: ${size}px;
-      background: ${color};
-      animation-duration: ${duration}s;
-      animation-delay: ${delay}s;
-      opacity: 0;
-    `;
+  const renderer = new THREE.WebGLRenderer({
+    canvas: canvas,
+    antialias: false, // disabled for performance; smoke planes are soft so AA is unnecessary
+    alpha: true,
+  });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    container.appendChild(dot);
+  /* ---- Procedural smoke texture via HTML5 Canvas 2D ---- */
+  function createSmokeTexture() {
+    const c   = document.createElement('canvas');
+    c.width   = 256;
+    c.height  = 256;
+    const ctx = c.getContext('2d');
+
+    const gradient = ctx.createRadialGradient(128, 128, 4, 128, 128, 128);
+    gradient.addColorStop(0,   'rgba(210, 180, 255, 0.85)');
+    gradient.addColorStop(0.35,'rgba(140,  80, 220, 0.45)');
+    gradient.addColorStop(0.7, 'rgba( 60,  20, 120, 0.15)');
+    gradient.addColorStop(1,   'rgba(  0,   0,   0,  0)');
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, 256, 256);
+    return new THREE.CanvasTexture(c);
   }
+
+  const smokeTexture = createSmokeTexture();
+
+  /* ---- Lights ---- */
+  const ambientLight = new THREE.AmbientLight(0x444466, 2.5);
+  scene.add(ambientLight);
+
+  const pointLight = new THREE.DirectionalLight(0xaa88ff, 1.5);
+  pointLight.position.set(0, 400, 500);
+  scene.add(pointLight);
+
+  /* ---- Smoke particles ---- */
+  const GEO = new THREE.PlaneGeometry(300, 300);
+  const smokeMeshes = [];
+
+  const SMOKE_MIN_OPACITY   = 0.07;
+  const SMOKE_OPACITY_RANGE = 0.25;
+
+  for (let i = 0; i < 80; i++) {
+    const mat = new THREE.MeshLambertMaterial({
+      map:         smokeTexture,
+      transparent: true,
+      opacity:     Math.random() * SMOKE_OPACITY_RANGE + SMOKE_MIN_OPACITY,
+      depthWrite:  false,
+    });
+
+    const mesh = new THREE.Mesh(GEO, mat);
+    mesh.position.set(
+      Math.random() * 1000 - 500,
+      Math.random() * 1000 - 500,
+      Math.random() * -400
+    );
+    mesh.rotation.z = Math.random() * Math.PI * 2;
+    scene.add(mesh);
+    smokeMeshes.push(mesh);
+  }
+
+  /* ---- Mouse parallax ---- */
+  let targetX = 0;
+  let targetY = 0;
+  let currentX = 0;
+  let currentY = 0;
+
+  const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+
+  if (!isTouchDevice) {
+    document.addEventListener('mousemove', function (e) {
+      targetX = (e.clientX / window.innerWidth  - 0.5) * 300;
+      targetY = (e.clientY / window.innerHeight - 0.5) * 300;
+    }, { passive: true });
+  }
+
+  /* ---- Resize ---- */
+  window.addEventListener('resize', function () {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }, { passive: true });
+
+  /* ---- Animation loop ---- */
+  function animate() {
+    requestAnimationFrame(animate);
+
+    currentX += (targetX - currentX) * 0.04;
+    currentY += (targetY - currentY) * 0.04;
+
+    camera.position.x = currentX;
+    camera.position.y = -currentY;
+
+    smokeMeshes.forEach(function (mesh) {
+      mesh.rotation.z += 0.0008;
+    });
+
+    renderer.render(scene, camera);
+  }
+
+  animate();
 })();
 
 /* ============================================================

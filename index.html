@@ -12,6 +12,9 @@
 </head>
 <body>
 
+  <!-- WebGL smoke background canvas -->
+  <canvas id="smoke-canvas" aria-hidden="true"></canvas>
+
   <!-- ===== NAVIGATION ===== -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
@@ -33,15 +36,12 @@
 
   <!-- ===== HERO SECTION ===== -->
   <section class="hero" id="hero">
-    <div class="hero-bg-glow"></div>
     <div class="hero-content">
-      <p class="hero-greeting fade-up">Hello, I'm</p>
-      <h1 class="hero-name fade-up">Abdul Rafay<br /><span class="accent gradient-text">Qaimkhani</span></h1>
+      <h1 class="hero-title fade-up">ABDUL RAFAY</h1>
       <p class="hero-subtitle fade-up">
         <span class="typing-prefix">I am a </span>
         <span class="typing-text" id="typing-text"></span><span class="typing-cursor">|</span>
       </p>
-      <p class="hero-location fade-up">📍 Hyderabad, Pakistan</p>
       <div class="hero-cta fade-up">
         <a href="#about" class="btn btn-primary">Explore My Work</a>
         <a href="#contact" class="btn btn-outline">Get In Touch</a>
@@ -53,7 +53,6 @@
         <span>Scroll Down</span>
       </div>
     </div>
-    <div class="hero-particles" id="hero-particles"></div>
   </section>
 
   <!-- ===== ABOUT SECTION ===== -->
@@ -359,6 +358,8 @@
     </div>
   </footer>
 
+  <!-- Three.js for WebGL smoke effect -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
